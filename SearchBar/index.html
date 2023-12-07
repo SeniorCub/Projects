@@ -1,0 +1,86 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+     <meta charset="UTF-8">
+     <meta name="viewport" content="width=device-width, initial-scale=1.0">
+     <title>Search Bar</title>
+     <!-- BootStrap Icon -->
+     <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.11.2/font/bootstrap-icons.min.css">
+     <!-- Normal CSS -->
+     <link rel="stylesheet" href="/SearchBar/style.css">
+</head>
+<body>
+     <div class="main">
+          <div class="name">GooGLe</div>
+          <div class="box">
+               <div class="left">
+                    <i class="bi bi-search"  ></i>
+               </div>
+               <div>
+                    <input type="text" placeholder="Search Google or type a URL" id="inputs">
+               </div>
+               <div class="micam">
+                    <button id="search-button" onclick="performSearch()">Search</button>
+                    <div><i class="bi bi-mic"></i></div>
+                    <div><i class="bi bi-camera"></i></div>
+               </div>
+          </div>
+          <div class="icons">
+               <div class="cons">
+                    <div class="con">
+                         <i class="bi bi-translate"></i>
+                    </div>
+                    <div class="co">Translate</div>
+               </div>
+               <div class="cons">
+                    <div class="con">
+                         <i class="bi bi-wordpress"></i>
+                    </div>
+                    <div class="co">Word Press</div>
+               </div>
+               <div class="cons">
+                    <div class="con">
+                         <i class="bi bi-cart4"></i>
+                    </div>
+                    <div class="co">Jumia</div>
+               </div>
+               <div class="cons">
+                    <div class="con">
+                         <i class="bi bi-facebook"></i>
+                    </div>
+                    <div class="co">FaceBook</div>
+               </div>
+               <div class="cons">
+                    <div class="con">
+                         <i class="bi bi-gear-wide-connected"></i>
+                    </div>
+                    <div class="co">Settings</div>
+               </div>
+               <div class="cons">
+                    <div class="con">
+                         <i class="bi bi-instagram"></i>
+                    </div>
+                    <div class="co">Instagram</div>
+               </div>
+               <div class="cons">
+                    <div class="con">
+                         <i class="bi bi-linkedin"></i>
+                    </div>
+                    <div class="co">LinkedIn</div>
+               </div>
+               <div class="cons">
+                    <div class="con">
+                         <i class="bi bi-plus"></i>
+                    </div>
+                    <div class="co">Add Shortcut</div>
+               </div>
+          </div>
+     </div>
+
+     <div id="search-results">
+          <!-- Search results will be displayed here -->
+      </div>
+
+     <script src="/SearchBar/script.js"></script>
+</body>
+</html>

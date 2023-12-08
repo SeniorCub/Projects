@@ -1,28 +1,38 @@
-// 308523269291-1q6ul4je7gvaqr36uea6jrtn3teat7ev.apps.googleusercontent.com
-//YOUR_GOOGLE_API_KEY = AIzaSyBXGXoHoqpe4FObvTud5hhkQIuhAJUb9g0
-function performSearch() {
-     var searchQuery = document.getElementById('inputs').value;
-     var searchResultsContainer = document.getElementById('search-results');
-
-     // Replace 'YOUR_GOOGLE_API_KEY' with your actual Google API key
-     var apiKey = 'AIzaSyBXGXoHoqpe4FObvTud5hhkQIuhAJUb9g0';
-     var cx = '308523269291-1q6ul4je7gvaqr36uea6jrtn3teat7ev.apps.googleusercontent.com';
-
-     var apiUrl = `https://www.googleapis.com/customsearch/v1?q=${searchQuery}&key=${apiKey}&cx=${cx}`;
-
-     // Clear previous search results
-     searchResultsContainer.innerHTML = '';
-
-     // Make API request
+// api key = 96ee6e6e97ca47e09c33c780cc713cf5
+document.addEventListener('DOMContentLoaded', function () {
+     const apiKey = '96ee6e6e97ca47e09c33c780cc713cf5'; // Replace with your News API key
+     const apiUrl = `https://newsapi.org/v2/everything?q=bitcoin&apiKey=${apiKey}`;
+ 
+     // Fetch news articles from News API
      fetch(apiUrl)
          .then(response => response.json())
          .then(data => {
-             // Display search results
-             data.items.forEach(item => {
-                 var resultItem = document.createElement('div');
-                 resultItem.innerHTML = `<p><a href="${item.link}" target="_blank">${item.title}</a></p>`;
-                 searchResultsContainer.appendChild(resultItem);
-             });
+             if (data.status === 'ok') {
+                 displayNews(data.articles);
+             } else {
+                 console.error('Error fetching news:', data.message);
+             }
          })
-         .catch(error => console.error('Error fetching search results:', error));
- }
+         .catch(error => {
+             console.error('Error fetching news:', error);
+         });
+ 
+     // Display news articles on the page
+     function displayNews(articles) {
+         const newsContainer = document.getElementById('news-container');
+ 
+         articles.forEach(article => {
+             const articleElement = document.createElement('div');
+             articleElement.className = 'news-article';
+ 
+             articleElement.innerHTML = `
+                 <div class="news-title">${article.title}</div>
+                 <div class="news-description">${article.description}</div>
+                 <a href="${article.url}" target="_blank">Read more</a>
+             `;
+ 
+             newsContainer.appendChild(articleElement);
+         });
+     }
+ });
+ 

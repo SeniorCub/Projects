@@ -27,7 +27,7 @@ document.addEventListener('DOMContentLoaded', function () {
              articleElement.className = 'news-article';
  
              articleElement.innerHTML = `
-               <a href="${article.url}" target="_blank">
+               <a href="${article.url}" class="news" target="_blank">
                     <div class="news-image"><img src="${article.urlToImage
                     }" ></div>
                     <div class="news-title">${article.title}</div>

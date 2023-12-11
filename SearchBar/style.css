@@ -100,8 +100,9 @@ input::placeholder{
      padding: 20px;
 }
 #news-container {
-     max-width: 800px;
-     margin: 20px auto;
+     margin: 0 auto;
+     display: grid;
+     grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
  }
  
  .news-article {

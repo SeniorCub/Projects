@@ -1,13 +1,19 @@
-document.addEventListener("DOMContentLoaded", function() {
-     var btnnnAddition = document.querySelector(".btnnn.addition");
-   
-     if (btnnnAddition) {
-       // Add a class to hide the element
-       btnnnAddition.classList.add("hidden");
-     }
-   });
-
 document.querySelector(".addcart").style.display = "none";
+document.querySelector(".ggg").style.display = "none";
+function adddd() {
+     let badge = document.querySelector(".badge")
+     let dig = document.querySelector(".dig")
+     num = Number(badge.innerText) + 1
+     badge.innerText = num
+     dig.innerText = num
+}
+function reduce() {
+     let badge = document.querySelector(".badge")
+     let dig = document.querySelector(".dig")
+     num = Number(badge.innerText) - 1
+     badge.innerText = num
+     dig.innerText = num
+}
 document.querySelector(".card").addEventListener("mouseover",()=>{
      let btnn = document.querySelector(".addcart")
      btnn.style.display = "block"
@@ -16,7 +22,16 @@ document.querySelector(".card").addEventListener("mouseout",()=>{
      let btnn = document.querySelector(".addcart")
      btnn.style.display = "none"
 })
-
 document.querySelector(".addcart").addEventListener("click",()=>{
-     document.querySelector(".btnnn.addition").
+     let btnn = document.querySelector(".addcart")
+     btnn.style.display = "none"
+     let btn = document.querySelector(".ggg")
+     btn.style.display = "block"
+     adddd()
+})
+document.querySelector(".minus").addEventListener("click",()=>{
+    reduce()
+})
+document.querySelector(".plus").addEventListener("click",()=>{
+     adddd()
 })

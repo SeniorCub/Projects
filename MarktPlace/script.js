@@ -1,5 +1,6 @@
 document.querySelector(".addcart").style.display = "none";
 document.querySelector(".ggg").style.display = "none";
+document.querySelector(".carts").style.display = "none";
 function adddd() {
      let badge = document.querySelector(".badge")
      let dig = document.querySelector(".dig")
@@ -42,3 +43,15 @@ document.querySelector(".minus").addEventListener("click",()=>{
 document.querySelector(".plus").addEventListener("click",()=>{
      adddd()
 })
+document.querySelector(".car").addEventListener("click",()=>{
+     let cartmenu = document.querySelector(".carts")
+     cartmenu.style.display = "block"
+})
+
+let cartmenu = document.getElementById("carts")
+if (cartmenu.style.display = "block") {
+     document.querySelector("body").addEventListener("click",()=>{
+          let cartmenu = document.querySelector(".carts")
+          cartmenu.style.display = "none"
+     })
+}

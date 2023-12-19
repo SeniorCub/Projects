@@ -59,7 +59,11 @@ form input{
 .btnnn{
      align-items: center;
 }
-.hidden {
-     display: none!important;
-   }
-   
+.btn-outline-success{
+     border: 1px solid orange;
+     color: orange;
+}
+.btn-outline-success:hover{
+     background-color: orange;
+     border: 1px solid orange;
+}

@@ -45,13 +45,16 @@ document.querySelector(".plus").addEventListener("click",()=>{
 })
 document.querySelector(".car").addEventListener("click",()=>{
      let cartmenu = document.querySelector(".carts")
-     cartmenu.style.display = "block"
+      
+     let extended = cartmenu.style.display === "block"
+
+     cartmenu.style.display = extended? "none" : "block"
 })
 
-let cartmenu = document.getElementById("carts")
-if (cartmenu.style.display = "block") {
-     document.querySelector("body").addEventListener("click",()=>{
-          let cartmenu = document.querySelector(".carts")
-          cartmenu.style.display = "none"
-     })
-}
+// 
+// if (cartmenu.style.display = "block") {
+//      document.querySelector("body").addEventListener("click",()=>{
+//           let cartmenu = document.querySelector(".carts")
+//           cartmenu.style.display = "none"
+//      })
+// }

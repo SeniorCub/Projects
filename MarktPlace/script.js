@@ -4,9 +4,11 @@ document.querySelector(".carts").style.display = "none";
 function adddd() {
      let badge = document.querySelector(".badge")
      let dig = document.querySelector(".dig")
+     let nnn = document.querySelector(".nnn")
      num = Number(badge.innerText) + 1
      badge.innerText = num
      dig.innerText = num
+     nnn.innerText = num
      if (num > 0) {
           document.querySelector(".card").removeEventListener
      }
@@ -14,6 +16,7 @@ function adddd() {
 function reduce() {
      let badge = document.querySelector(".badge")
      let dig = document.querySelector(".dig")
+     let nnn = document.querySelector(".nnn")
      num = Number(badge.innerText) - 1;
      if (num <= 0) {
           let btn = document.querySelector(".ggg")
@@ -21,6 +24,7 @@ function reduce() {
      }
      badge.innerText = num
      dig.innerText = num
+     nnn.innerText = num
 }
 document.querySelector(".card").addEventListener("mouseover",()=>{
      let btnn = document.querySelector(".addcart")

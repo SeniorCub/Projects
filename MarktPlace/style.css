@@ -76,4 +76,14 @@ form input{
      top: 10%;
      left: 10%;
      display: none;
+     padding: 10px;
+}
+.cold{
+     gap: 20px;  
+     display: grid;
+     grid-template-columns: 2fr 1fr;
+}
+.col{
+     background-color: rgba(128, 128, 128, 0.11);
+     padding: 10px;
 }

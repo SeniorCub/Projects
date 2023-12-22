@@ -11,7 +11,7 @@ body{
 form input{
      width: 700px!important;
 }
-.bord{
+.bord, .ccc, .suuum, .suuu{
      border-bottom: 1px solid rgba(0, 0, 0, 0.13);
 }
 .tag{
@@ -86,4 +86,56 @@ form input{
 .col{
      background-color: rgba(128, 128, 128, 0.11);
      padding: 10px;
+}
+.col3{
+     text-align: center;
+}
+.suuum, .ccc{
+     text-align: left;
+     font-weight: 500;
+}
+.suuum,.suuu,.ccc{
+     padding: 5px 0;
+}
+.te{
+     margin-top: 10px;
+}
+img{
+     width: 100%;
+     height: 100%;
+     object-fit: contain;
+}
+.good{
+     background-color: #fff;
+     padding: 5px;
+}
+.goo{
+     display: flex;
+     justify-content: space-between;
+}
+.goo .img{
+     width: 50px;
+     height: 50px;
+}
+.goo .img{
+     font-size: 20px;
+}
+.expp{
+     font-size: 10px;
+     color: rgb(204, 133, 0);
+}
+.btttt{
+     color: orange;
+     font-size: 15px;
+}
+.gpoo{
+     display: flex;
+     justify-content: space-between;
+}
+.gpoo .bt{
+     padding: 0;
+     height: 20px;
+     width: 20px;
+     text-align: center;
+     font-size: 10px;
 }

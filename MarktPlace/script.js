@@ -40,8 +40,9 @@ document.querySelector(".addcart").addEventListener("click",()=>{
      let btn = document.querySelector(".ggg")
      btn.style.display = "block"
      adddd()
+     cart()
 })
-document.querySelector(".minus").addEventListener("click",()=>{
+document.querySelectorAll(".minus").addEventListener("click",()=>{
     reduce()
 })
 document.querySelector(".plus").addEventListener("click",()=>{
@@ -55,3 +56,43 @@ document.querySelector(".car").addEventListener("click",()=>{
      let extended = cartmenu.style.display === "block"
      cartmenu.style.display = extended? "none" : "block"
 })
+function cart() {
+     document.querySelector(".goods").innerHTML = `
+                         <div class="good">
+                              <div class="goo">
+                                   <div class="img">
+                                        <img src="1.jpg" alt="....">
+                                  </div>
+     
+                                  <div class="tavvv">
+                                        <div class="name">
+                                             XIAOMI Redmi A2 + 6.52*2GB RAM/32GB ROM Android 12 - Black
+                                        </div>
+                                        <div class="expp">Few units left</div>
+                                        <div class="deli">
+                                             Jumia <span class="exp"><i class="bi bi-send-fill"></i>Express</span>
+                                       </div>
+                                  </div>
+     
+                                  <div class="price">
+                                        <div class="new">#61,800</div>
+                                        <div class="">
+                                             <span class="old"> #71,000</span>
+                                             <span class="dis">-13%</span>
+                                        </div>
+                                  </div>
+                              </div>
+
+                              <div class="gpoo">
+                                   <div class="btn btttt"><i class="bi bi-basket3-fill"></i>  REMOVE</div>
+                                   <div class="ggg">
+                                         <div class="d-flex btnnn addition">
+                                              <div class="btn btnn bt minus">-</div>
+                                              <span class="dig">1</span>
+                                              <div class="btn btnn bt plus">+</div>
+                                         </div>
+                                   </div>
+                              </div>
+                         </div>
+                         `
+}

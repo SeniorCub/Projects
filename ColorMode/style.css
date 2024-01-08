@@ -1,0 +1,35 @@
+/* increse the size of a font awsome icon */
+
+.fa-2x {
+  font-size: 2em;
+}
+.success {
+     font-weight: 700;
+  color: green!important;
+}
+img{
+     width: 100%;
+     height: 100%;
+}
+body, .ddex a{
+    color: #333;
+}
+.tex{
+     font-size: 20px;
+     line-height: 2;
+}
+.hero h1{
+     font-size: 4em;
+}
+.formm{
+     border: none;
+     border-bottom: 2px solid #333;
+     background-color: rgba(128, 128, 128, 0.274);
+     width: 300px;
+}
+.formm::placeholder{
+     color: #333;
+}
+.ddex{
+     font-size: 10px;
+}

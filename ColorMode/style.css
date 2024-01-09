@@ -33,3 +33,9 @@ body, .ddex a{
 .ddex{
      font-size: 10px;
 }
+/* .fa-toggle-on{
+     display: none!important;
+} */
+.navbar{
+     background-color: #dbdbdb;
+}

@@ -1,0 +1,55 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+     <meta charset="UTF-8">
+     <meta name="viewport" content="width=device-width, initial-scale=1.0">
+     <title>Currency Calculator</title>
+
+     <!-- Calculator CSS Link -->
+     <link rel="stylesheet" href="/Calculator/cal.css">
+     <!-- Temprature CSS Link -->
+     <link rel="stylesheet" href="/Calculator/CalcSrc/css/temp.css">
+     <!-- Currency CSS Link -->
+     <link rel="stylesheet" href="/Calculator/CalcSrc/css/currency.css">
+</head>
+<body>
+
+     <div class="ul">
+          <div class="bord"><a href="/Calculator/cal.html">Normal Calculator</a></div>
+          <div class="bord"><a href="temp.html">Temptature Calculator</a></div>
+          <div class="active"><a href="#">Currency Calculator</a></div>
+     </div>
+
+     <section>
+          <h1>Currency Conversion</h1>
+          
+          <div class="">
+               <label for="amount">Amount:</label>
+               <input class="inputss" type="number" id="amount" min="0" step="0.01" placeholder="Enter amount">
+          </div>
+
+          <div class="select">
+               <label for="source">From Currency:</label>
+               <select id="source">
+                    <!-- Options will be dynamically populated from the API -->
+               </select>
+
+               <label for="target">To Currency:</label>
+               <select id="target">
+                    <!-- Options will be dynamically populated from the API -->
+               </select>
+          </div>
+
+          <button type="button" class="convert" onclick="convertCurrency()">Convert</button>
+
+          <p id="result">Converted Amount: </p>
+     </section>
+
+    
+     <!-- Calculator Script -->
+     <script src="/Calculator/cal.js"></script>
+     <!-- Currency Script -->
+     <script src="/Calculator/CalcSrc/script/currency.js"></script>
+     
+</body>
+</html>

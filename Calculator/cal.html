@@ -1,0 +1,57 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+     <meta charset="UTF-8">
+     <meta name="viewport" content="width=device-width, initial-scale=1.0">
+     <title>Normal Calculator</title>
+     <!-- Calculator CSS Link -->
+     <link rel="stylesheet" href="cal.css">
+</head>
+<body>
+
+     <div class="ul">
+          <div class="bord active">
+               <a href="#">Normal Calculator</a>
+          </div>
+
+          <div class="bord">
+               <a href="./CalcSrc/html/temp.html">Temptature Calculator</a>
+          </div>
+
+          <div>
+               <a href="./CalcSrc/html/currency.html">Currency Calculator</a>
+          </div>
+     </div>
+
+     <div class="cal">
+          <input type="text" class="inputs">
+
+          <div class="btnss">
+               <button class="btn1">1</button>
+               <button class="btn2">2</button>
+               <button class="btn3">3</button>
+               <button onclick="clearDisplay()">C</button>
+               <button class="btn4">4</button>
+               <button class="btn5">5</button>
+               <button class="btn6">6</button>
+               <button class="btnm">-</button>
+               <button class="btn7">7</button>
+               <button class="btn8">8</button>
+               <button class="btn9">9</button>
+               <button class="btnp">+</button>
+               <button class="btnMul">*</button>
+               <button class="btn0">0</button>
+               <button class="btnd">/</button>
+               <button onclick="calculate()">=</button>
+
+          </div>
+
+          <button class="lolo" onclick="deleteLastCharacter()">DEL</button>
+     </div>
+
+
+     
+     <!-- Calculator Script -->
+     <script src="cal.js"></script>
+</body>
+</html>

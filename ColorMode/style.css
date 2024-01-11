@@ -1,5 +1,8 @@
-/* increse the size of a font awsome icon */
-
+*{
+     padding: 0;
+     margin: 0;
+     box-sizing: border-box;
+}
 .fa-2x {
   font-size: 2em;
 }

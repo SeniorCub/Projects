@@ -39,21 +39,29 @@
       background-color: blue;
       position: absolute;
     }
+
+    #scoreboard {
+      font-size: 18px;
+      margin-top: 10px;
+    }
   </style>
   <title>Snake Game</title>
 </head>
 <body>
 
 <div id="game-board"></div>
+<div id="scoreboard">Score: 0</div>
 
 <script>
   // Set up initial variables
   const gameBoard = document.getElementById('game-board');
+  const scoreboard = document.getElementById('scoreboard');
   const boardSize = 300;
   const cellSize = 20;
   let snake = [{ x: 0, y: 0 }];
   let direction = 'right';
   let food = { x: 0, y: 0, type: 'small' }; // Initial type is small
+  let score = 0;
 
   function drawSnake() {
     // Remove previous snake elements
@@ -95,6 +103,16 @@
     return array.some((segment) => segment.x === head.x && segment.y === head.y);
   }
 
+  function checkBigFoodCollision(head) {
+    // Check if any part of the head is within the area covered by the big food
+    return (
+      head.x < food.x + cellSize &&
+      head.x + cellSize > food.x &&
+      head.y < food.y + cellSize &&
+      head.y + cellSize > food.y
+    );
+  }
+
   function updateSnake() {
     const head = { ...snake[0] };
 
@@ -122,18 +140,23 @@
     // Check for collision with itself
     if (checkCollision(head, snake.slice(1))) {
       // Snake collided with itself, handle the game over condition
-      alert('Game Over!');
+      alert('Game Over! Your final score: ' + score);
       // Reset the game
       resetGame();
       return;
     }
 
     // Check if the snake has eaten the food
-    if (head.x === food.x && head.y === food.y) {
+    if ((food.type === 'small' && head.x === food.x && head.y === food.y) ||
+        (food.type === 'big' && checkBigFoodCollision(head))) {
+      // Increase the score
+      score += (food.type === 'small') ? 1 : 2;
       // Add a new segment to the front of the snake
       snake.unshift({ ...head });
       // Update the position and type of the food
       updateFood();
+      // Update the scoreboard
+      updateScoreboard();
     } else {
       // Add the new head to the front of the snake
       snake.unshift(head);
@@ -174,6 +197,13 @@
     direction = 'right';
     removeFood(); // Remove any existing food elements
     updateFood(); // Update the position and type of the initial food
+    score = 0; // Reset the score
+    updateScoreboard(); // Update the scoreboard
+  }
+
+  function updateScoreboard() {
+    // Update the scoreboard with the current score
+    scoreboard.textContent = 'Score: ' + score;
   }
 
   function gameLoop() {

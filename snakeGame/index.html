@@ -1,26 +1,197 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-     <meta charset="UTF-8">
-     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-     <title>Document</title>
-     <link rel="stylesheet" href="./style.css">
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <style>
+    /* Add some basic styling to visualize the snake and food */
+    #game-board {
+      width: 300px;
+      height: 300px;
+      border: 1px solid #000;
+      position: relative;
+    }
+
+    .snake-head {
+      width: 20px;
+      height: 20px;
+      background-color: green;
+      position: absolute;
+    }
+
+    .snake-body {
+      width: 20px;
+      height: 20px;
+      background-color: #00cc00; /* Lighter green for body */
+      position: absolute;
+    }
+
+    .small-food {
+      width: 20px;
+      height: 20px;
+      background-color: red;
+      position: absolute;
+    }
+
+    .big-food {
+      width: 40px;
+      height: 40px;
+      background-color: blue;
+      position: absolute;
+    }
+  </style>
+  <title>Snake Game</title>
 </head>
 <body>
 
-     <div class="snakeGame">
-          <div class="snake">
-               <div class="headd"></div><div class="body"></div>
-          </div>
-          <div class="foodsm"></div>
-          <div class="foodbig"></div>
-     </div>
-     <div class="scoreboard">
-          <div class="scor">Score: <span class="score">00</span></div>
-          <button class="pause">Pause</button>
-          <button class="reset">Reset</button>
-     </div>
+<div id="game-board"></div>
 
-     <script src="./script.js"></script>
+<script>
+  // Set up initial variables
+  const gameBoard = document.getElementById('game-board');
+  const boardSize = 300;
+  const cellSize = 20;
+  let snake = [{ x: 0, y: 0 }];
+  let direction = 'right';
+  let food = { x: 0, y: 0, type: 'small' }; // Initial type is small
+
+  function drawSnake() {
+    // Remove previous snake elements
+    document.querySelectorAll('.snake-head, .snake-body').forEach((segment) => segment.remove());
+
+    // Draw the snake on the game board
+    snake.forEach((segment, index) => {
+      const snakeSegment = document.createElement('div');
+      snakeSegment.className = (index === 0) ? 'snake-head' : 'snake-body';
+      snakeSegment.style.left = segment.x + 'px';
+      snakeSegment.style.top = segment.y + 'px';
+      gameBoard.appendChild(snakeSegment);
+    });
+  }
+
+  function drawFood() {
+    const foodElement = document.createElement('div');
+    foodElement.className = (food.type === 'small') ? 'small-food' : 'big-food';
+    foodElement.style.left = food.x + 'px';
+    foodElement.style.top = food.y + 'px';
+    gameBoard.appendChild(foodElement);
+  }
+
+  function updateFood() {
+    // Generate random positions for the food within the game board
+    food.x = Math.floor(Math.random() * (boardSize / cellSize)) * cellSize;
+    food.y = Math.floor(Math.random() * (boardSize / cellSize)) * cellSize;
+    // Randomly set the type of food to be either 'small' or 'big'
+    food.type = (Math.random() < 0.5) ? 'small' : 'big';
+  }
+
+  function removeFood() {
+    // Remove any existing food elements
+    document.querySelectorAll('.small-food, .big-food').forEach((foodElement) => foodElement.remove());
+  }
+
+  function checkCollision(head, array) {
+    // Check if the head position collides with any segment of the array
+    return array.some((segment) => segment.x === head.x && segment.y === head.y);
+  }
+
+  function updateSnake() {
+    const head = { ...snake[0] };
+
+    switch (direction) {
+      case 'up':
+        head.y -= cellSize;
+        break;
+      case 'down':
+        head.y += cellSize;
+        break;
+      case 'left':
+        head.x -= cellSize;
+        break;
+      case 'right':
+        head.x += cellSize;
+        break;
+    }
+
+    // Check for boundary conditions and prevent the snake from going outside the game board
+    if (head.x < 0) head.x = boardSize - cellSize;
+    if (head.x >= boardSize) head.x = 0;
+    if (head.y < 0) head.y = boardSize - cellSize;
+    if (head.y >= boardSize) head.y = 0;
+
+    // Check for collision with itself
+    if (checkCollision(head, snake.slice(1))) {
+      // Snake collided with itself, handle the game over condition
+      alert('Game Over!');
+      // Reset the game
+      resetGame();
+      return;
+    }
+
+    // Check if the snake has eaten the food
+    if (head.x === food.x && head.y === food.y) {
+      // Add a new segment to the front of the snake
+      snake.unshift({ ...head });
+      // Update the position and type of the food
+      updateFood();
+    } else {
+      // Add the new head to the front of the snake
+      snake.unshift(head);
+      // Remove the last segment of the snake to maintain its length
+      snake.pop();
+    }
+  }
+
+  function handleKeyPress(event) {
+    // Update the direction based on the arrow keys
+    switch (event.code) {
+      case 'ArrowUp':
+        if (direction !== 'down') {
+          direction = 'up';
+        }
+        break;
+      case 'ArrowDown':
+        if (direction !== 'up') {
+          direction = 'down';
+        }
+        break;
+      case 'ArrowLeft':
+        if (direction !== 'right') {
+          direction = 'left';
+        }
+        break;
+      case 'ArrowRight':
+        if (direction !== 'left') {
+          direction = 'right';
+        }
+        break;
+    }
+  }
+
+  function resetGame() {
+    // Reset the snake, direction, and food positions
+    snake = [{ x: 0, y: 0 }];
+    direction = 'right';
+    removeFood(); // Remove any existing food elements
+    updateFood(); // Update the position and type of the initial food
+  }
+
+  function gameLoop() {
+    updateSnake();
+    drawSnake();
+    drawFood();
+  }
+
+  // Set up event listeners
+  document.addEventListener('keydown', handleKeyPress);
+
+  // Initialize the position and type of the initial food
+  updateFood();
+
+  // Run the game loop at regular intervals
+  setInterval(gameLoop, 200);
+
+</script>
+
 </body>
 </html>

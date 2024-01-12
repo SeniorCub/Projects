@@ -268,20 +268,53 @@ lottie-player{
      flex-direction: column;
 }
 #testimonial{
-     height: 100vh;
+     height: 80vh;
      padding: 0 50px;
      padding-top: 7%;
-     padding-bottom: 7%;
      color: #ECF1F0;
 }
 .serv{
      text-transform: capitalize;
 }
 .cardss{
-     display: flex;
-     justify-content: space-between;
+     display: grid;
+     grid-template-columns: repeat(3, 1fr);
+     gap: 50px;
      align-items: center;
 }
 .carddd{
-     ba
+     background-color: #ecf1f01f;
+     border: #ecf1f03b 1px solid;
+     padding: 20px;
+     text-align: center;
+     border-radius: 15px;
+}
+.toooo{
+     display: flex;
+     align-items: center;
+     justify-content: center;
+     gap: 20px;
+     color: #f7931a;
+     font-weight: 700;
+     font-size: 20px;
+}
+.profile{
+     height: 50px;
+     width: 50px;
+}
+.profile img{
+     border-radius: 100%;
+}
+#gettouch{
+     height: 100vh;
+     padding: 0 50px;
+     padding-top: 7%;
+     color: #ECF1F0;
+     display: flex;
+     justify-content: center;
+}
+.address{
+     display: flex;
+     gap: 20px;
+     padding: 10px 5px 5px 50px;
 }

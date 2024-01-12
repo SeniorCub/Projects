@@ -46,7 +46,7 @@ li a{
      border-radius: 5px;
      color: #ECF1F0;
 }
-.navbutton button:hover, #home button:hover, .one button:hover, .si button:hover, .ini button:hover{
+.navbutton button:hover, #home button:hover, .one button:hover, .si button:hover, .ini button:hover, .btn button:hover{
      background-color: transparent!important;
      border: 1px solid #f7931a;
 }
@@ -306,7 +306,7 @@ lottie-player{
      border-radius: 100%;
 }
 #gettouch{
-     height: 100vh;
+     height: 80vh;
      padding: 0 50px;
      padding-top: 7%;
      color: #ECF1F0;
@@ -317,4 +317,48 @@ lottie-player{
      display: flex;
      gap: 20px;
      padding: 10px 5px 5px 50px;
+}
+.right{
+     padding-left: 60px;
+     padding-top: 10%;
+}
+.right input{
+     background-color: #ecf1f01f;
+     border: #ecf1f03b 1px solid;
+     height: 30px;
+     border-radius: 5px;
+}
+.oo{
+     padding: 10px 0;
+}
+.ooo{
+     display: flex;
+     align-items: center;
+     justify-content: space-between;
+}
+.btn button{
+     background-color: #f7931a;
+     padding: 5px 10px;
+     border: none;
+     color: #ECF1F0;
+     font-size: 15px;
+     font-weight: 500;
+     border-radius: 5px;
+     float: right;
+}
+footer{
+     height: 10vh;
+     padding: 0 50px;
+     color: #03649c;
+     display: flex;
+     justify-content: space-between;
+     align-items: center;
+     background-color: #ECF1F0;
+}
+.bran{
+     font-weight: 700;
+     font-size: 25px;
+}
+footer .navlinks a{
+     color: #03649c;
 }

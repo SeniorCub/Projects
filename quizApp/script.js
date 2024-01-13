@@ -75,10 +75,11 @@ function start() {
           if (timer == 0) {
                clearInterval(interval);
                alert(`Time is up.
-               Your score is ${scor}`);
+Your score is ${scor}`);
                window.location.reload();
           } else if (timer < 10) {
                time.style.color = 'red';
+               audio.src = "./audio/mixkit-classic-short-alarm-993.wav";
           } else {
                time.style.color = 'black';
           }
@@ -133,12 +134,27 @@ result.addEventListener('click', () => {
      if (answer.checked) {
           scor += 20;
           score.innerText = scor;
-          alert(`Your score is ${scor}`);
-          window.location.reload();
-     } else if (radioButtons[0].checked) {
-          alert(`Your score is ${scor}`);
-          window.location.reload();
+          if (scor == 80 || scor == 100 || scor == 120) {
+               if (scor == 120) {
+                    scor = 100;
+               }
+               audio.src = "./audio/mixkit-church-moderate-applause-499.wav";
+               alert(`Your score is ${scor}. You are a genius`);
+               window.location.reload();
+          } else if (scor === 40 || scor === 60){
+               audio.src = "./audio/mixkit-light-applause-with-laughter-audience-512.wav";
+               alert(`Your score is ${scor}. You are a little bit smart`);
+               window.location.reload();
+          } else {
+               audio.src = "./audio/mixkit-cartoon-failure-piano-473.wav";
+               alert(`Your score is ${scor}. You are Dumb`);
+               window.location.reload();
+          }
      } else {
-          alert('Please select an option');
+          audio.src = "./audio/mixkit-cartoon-failure-piano-473.wav";
+          score.innerText = scor;
+          alert(`Your score is ${scor}. You are Dumb`);
+          window.location.reload();
      }
 })
+

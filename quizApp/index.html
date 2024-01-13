@@ -8,14 +8,19 @@
 </head>
 <body>
 
+     <div class="start">
+          <h1>Quiz App</h1>
+          <button id="start">Start Quiz</button>
+     </div>
      <section>
           
           <div class="container">
                <div class="quiz-container">
+                    <div class="display">Hello</div>
                     <div id="quizQuestion">This is Reuben's Quiz App</div>
                     <div id="quizOptions">
                          <div class="option">
-                              <input type="radio" name="option" id="option1">
+                              <input type="radio" name="option" id="option1" class="answer">
                               <label for="option1" id="option1Label">Answer 1</label>
                          </div>
                          <div class="option">
@@ -31,6 +36,9 @@
                               <label for="option4" id="option4Label">Answer 4</label>
                          </div>
                     </div>
+                    <audio id="myAudio" autoplay style="display:none;">
+                         <source src="audio/mixkit-greeting-music-box-tone-699.wav" type="audio/mp3">
+                     </audio>
                </div>
 
                <div id="scoreBoard">
@@ -45,9 +53,9 @@
           </div>
 
           <div class="btns">
-               <button id="previous">Previous Question</button>
-               <button id="submit">Submit Quiz</button>
                <button id="next">Next Question</button>
+               <button id="submit">Submit Quiz</button>
+              
           </div>
      </section>
      

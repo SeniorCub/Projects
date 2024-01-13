@@ -1,12 +1,12 @@
 let questions = {
      1: {
           question: "What is the capital of France?",
-          options: ["New York", "London", "Paris", "Dublin"],
+          options: ["Paris", "New York", "London",  "Dublin"],
           answer: "Paris",
      },
      2: {
           question: "Who is CEO of Tesla?",
-          options: ["Jeff Bezos", "Elon Musk", "Bill Gates", "Tony Stark"],
+          options: ["Elon Musk", "Jeff Bezos",  "Bill Gates", "Tony Stark"],
           answer: "Elon Musk",
      },
      3: {
@@ -16,12 +16,12 @@ let questions = {
      },
      4: {
           question: "How many Harry Potter books are there?",
-          options: ["1", "4", "6", "7"],
+          options: [ "7", "1", "4", "6"],
           answer: "7",
      },
      5: {
           question: "How many sides does a triangle have?",
-          options: ["2", "3", "4", "5"],
+          options: ["3", "2", "4", "5"],
           answer: "3",
      },
 }
@@ -37,37 +37,58 @@ const questionNumber = document.querySelector('#questionNumber');
 const totalNumber = document.querySelector('#totalNumber');
 const progressBar = document.querySelector('#progress');
 const nextButton = document.querySelector('#next');
-const previousButton = document.querySelector('#previous');
 const result = document.querySelector('#submit');
 const radioButtons = document.querySelectorAll('input[type="radio"]');
+const displayy = document.querySelector('.display');
+const answer = document.querySelector('.answer');
+var audio = document.getElementById("myAudio");
 
-let correctAnswers = 0;
-let wrongAnswers = 0;
+let scor = 0;
 
-let timer = 20;
-let interval = setInterval(() => {
-     timer--;
-     time.innerText = timer;
-     if (timer == 0) {
-          clearInterval(interval);
-          alert('Time is up');
-          window.location.reload();
 
-     }
-}, 1000);
 document.addEventListener("DOMContentLoaded", () => {
+     document.querySelector('#start').addEventListener('click', start);
+     displayy.innerText = 'Click the start button to start the game';
+     radioButtons.forEach((radioButton) => {
+          radioButton.checked = false;
+     })
+     audio.src = "./audio/mixkit-greeting-music-box-tone-699.wav";
+})
+
+function start() {
      question.innerText = questions[1].question;
      option1.innerText = questions[1].options[0];
      option2.innerText = questions[1].options[1];
      option3.innerText = questions[1].options[2];
      option4.innerText = questions[1].options[3];
      questionNumber.innerText = 1;
-     time.innerText = 20;
+     time.innerText = 25;
      score.innerText = 0;
      totalNumber.innerText = Object.keys(questions).length;
-})
+     progressBar.style.width = `${(1/Object.keys(questions).length)*100}%`;
+     displayy.innerText = 'The Game Has Started';
+     document.querySelector('.start').style.display = 'none';
+     let timer = 25;
+     let interval = setInterval(() => {
+          timer--;
+          time.innerText = timer;
+          if (timer == 0) {
+               clearInterval(interval);
+               alert(`Time is up.
+               Your score is ${scor}`);
+               window.location.reload();
+          } else if (timer < 10) {
+               time.style.color = 'red';
+          } else {
+               time.style.color = 'black';
+          }
+     }, 1000);
+     audio.src = "./audio/mixkit-game-level-music-689.wav";
+}
 nextButton.addEventListener('click', () => {
-     if (radioButtons[0].checked || radioButtons[1].checked || radioButtons[2].checked || radioButtons[3].checked) {
+     if (answer.checked) {
+          scor += 20;
+          score.innerText = scor;
           let currentQuestion = parseInt(questionNumber.innerText);
           if (currentQuestion < Object.keys(questions).length) {
                currentQuestion++;
@@ -81,28 +102,43 @@ nextButton.addEventListener('click', () => {
                radioButtons.forEach((radioButton) => {
                     radioButton.checked = false;
                })
-               if (questions[currentQuestion].answer == radioButtons[0].value) {
-                    correctAnswers++;
-                    score.innerText = correctAnswers;
-               } else {
-                    wrongAnswers++;
-               }
-          } else {
+          }else {
                alert('No more questions Submit your answers');
+               nextButton.style.display = 'none';
           }
+     } else if (radioButtons[0].checked || radioButtons[1].checked || radioButtons[2].checked || radioButtons[3].checked) {
+          let currentQuestion = parseInt(questionNumber.innerText);
+          if (currentQuestion < Object.keys(questions).length) {
+               currentQuestion++;
+               question.innerText = questions[currentQuestion].question;
+               option1.innerText = questions[currentQuestion].options[0];
+               option2.innerText = questions[currentQuestion].options[1];
+               option3.innerText = questions[currentQuestion].options[2];
+               option4.innerText = questions[currentQuestion].options[3];
+               questionNumber.innerText = currentQuestion;
+               progressBar.style.width = `${(currentQuestion/Object.keys(questions).length)*100}%`;
+               radioButtons.forEach((radioButton) => {
+                    radioButton.checked = false;
+               })
+          }else {
+               alert('No more questions Submit your answers');
+               nextButton.style.display = 'none';
+          }   
      } else {
           alert('Please select an option');
      }
+})
 
-
-
-
-
-
-
-
-
-
-
-     
+result.addEventListener('click', () => {
+     if (answer.checked) {
+          scor += 20;
+          score.innerText = scor;
+          alert(`Your score is ${scor}`);
+          window.location.reload();
+     } else if (radioButtons[0].checked) {
+          alert(`Your score is ${scor}`);
+          window.location.reload();
+     } else {
+          alert('Please select an option');
+     }
 })

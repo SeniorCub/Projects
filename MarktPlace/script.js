@@ -1,3 +1,48 @@
+fetch('https://fakestoreapi.com/products?limit=12')
+.then (data => data.json())
+.then(data2 => data2.forEach(element => {
+document.querySelector('.cards').innerHTML += `
+
+
+     <div class="p-2 col-lg-3 col-md-5 col-10 card">
+          <div class="img">
+               <img src="${element.image}" alt="....">
+          </div>
+          <div class="tag">Official Store</div>
+          <div class="name">
+               ${element.title}
+          </div>
+          <div class="price">
+               <div class="new">$${element.price}</div>
+               <div class="">
+                    <span class="old"> #71,000</span>
+                    <span class="dis">${element.rating.rate}</span>
+               </div>
+          </div>
+          <div class="rate">
+               <i class="bi bi-star-fill"></i>
+               <i class="bi bi-star-fill"></i>
+               <i class="bi bi-star-fill"></i>
+               <i class="bi bi-star-half"></i>
+               <i class="bi bi-star"></i>(26)
+          </div>
+          <div class="deli">
+               Jumia <span class="exp"><i class="bi bi-send-fill"></i>Express</span>
+          </div>
+          <div class="btn btnn addcart">ADD TO CART</div>
+          <div class="ggg">
+               <div class="d-flex btnnn addition">
+                    <div class="btn btnn bt minus">-</div>
+                    <span class="dig">1</span>
+                    <div class="btn btnn bt plus">+</div>
+               </div>
+          </div>
+     </div>
+`
+
+}));
+
+
 document.querySelector(".addcart").style.display = "none";
 document.querySelector(".ggg").style.display = "none";
 document.querySelector(".carts").style.display = "none";

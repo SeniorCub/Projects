@@ -78,6 +78,12 @@ form input{
      display: none;
      padding: 10px;
 }
+.card{
+     height: 400px;
+}
+.img{
+     height: 100px;
+}
 .cold{
      gap: 20px;  
      display: grid;

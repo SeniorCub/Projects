@@ -141,3 +141,7 @@ function cart() {
                          </div>
                          `
 }
+
+const goods = require("./api")
+
+console.log(goods);

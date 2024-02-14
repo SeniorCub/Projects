@@ -162,5 +162,3 @@ let goods = [
      rating:{"rate":3.6,"count":145}
 }
 ]
-
-module.exports = goods;

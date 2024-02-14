@@ -13,45 +13,46 @@ document.querySelector(".car").addEventListener("click",()=>{
 let list = document.querySelector(".list");
 let listCard = document.querySelector(".listcard");
 let body = document.querySelector("body");
-let total = document.querySelector(".total");
+let total = document.querySelectorAll(".total");
 let quantity = document.querySelector(".quantity");
+
 
 
 let products = [
      {
           id: 1,
           name: 'PRODUCT 1',
-          image: 'Images/One.jpeg',
+          image: '1.jpg',
           price: 120000
      },
      {
           id: 2,
           name: 'PRODUCT 2',
-          image: 'Images/Two.jpeg',
+          image: '2.jpg',
           price: 100000
      },
      {
           id: 3,
           name: 'PRODUCT 3',
-          image: 'Images/Three.jpeg',
+          image: '3.jpg',
           price: 150000
      },
      {
           id: 4,
           name: 'PRODUCT 4',
-          image: 'Images/Three.jpeg',
+          image: '4.jpg',
           price: 70000
      },
      {
           id: 5,
           name: 'PRODUCT 5',
-          image: 'Images/One.jpeg',
+          image: '1.jpg',
           price: 200000
      },
      {
           id: 6,
           name: 'PRODUCT 6',
-          image: 'Images/Two.jpeg',
+          image: '2.jpg',
           price: 250000
      }
 ];
@@ -104,7 +105,9 @@ function reloadCard() {
           listCard.appendChild(newDiv);
           }
      })
-     total.innerText = totalPrice.toLocaleString();
+     total.forEach((value) => {
+          value.innerText = totalPrice.toLocaleString();
+     })
      quantity.innerText = count;
 }
 

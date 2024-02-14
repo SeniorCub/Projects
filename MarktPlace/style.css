@@ -14,52 +14,7 @@ form input{
 .bord, .ccc, .suuum, .suuu{
      border-bottom: 1px solid rgba(0, 0, 0, 0.13);
 }
-.tag{
-     padding: 2px 5px;
-     width: max-content;
-     background-color: rgb(5, 81, 87);
-     color: white;
-}
-.new{
-     font-weight: 700;
-}
-.old{
-     font-style: oblique;
-     text-decoration: line-through;
-}
-.dis{
-     padding: 2px;
-     font-weight: 500;
-     color: orange;
-     background-color: rgba(255, 166, 0, 0.2);
-}
-.bi-star-fill, .bi-star-half, .bi-star, .bi-patch-check-fill, .bi-grid-fill{
-     color: orange;
-}
-.deli{
-     font-size: 13px;
-     margin-bottom: 15px;
-}
-.exp{
-     color: orange;
-}
-.btnn{
-     margin: auto;
-     color: white;
-     font-weight: 600;
-     background-color: orange;
-     padding: 5px;
-     width: 60%;
-     text-align: center;
-     border-radius: 5px;
-}
-.bt{
-     font-size: 20px;
-     width: 50px;
-}
-.btnnn{
-     align-items: center;
-}
+
 .btn-outline-success{
      border: 1px solid orange;
      color: orange;
@@ -76,15 +31,6 @@ form input{
      top: 10%;
      left: 10%;
      padding: 10px;
-}
-.cardd{
-     max-height: 400px;
-     display: flex;
-     flex-direction: column;
-     background-color: rgb(255, 251, 239);
-}
-.img{
-     height: 100px;
 }
 .cold{
      gap: 20px;  
@@ -114,44 +60,66 @@ img{
      object-fit: contain;
      background: transparent;
 }
-.good{
-     background-color: #fff;
-     padding: 5px;
+
+
+body{
+     font-family: monospace;
 }
-.goo{
-     display: flex;
-     justify-content: space-between;
+.list{
+     display: grid;
+     grid-template-columns: repeat(3, 1fr);
+     row-gap: 20px;
+     margin-top: 50px;
 }
-.goo .img{
-     width: 50px;
-     height: 50px;
-}
-.goo .img{
-     font-size: 20px;
-}
-.expp{
-     font-size: 10px;
-     color: rgb(204, 133, 0);
-}
-.btttt{
-     color: orange;
-     font-size: 15px;
-}
-.gpoo{
-     display: flex;
-     justify-content: space-between;
-}
-.gpoo .bt{
-     padding: 0;
-     height: 20px;
-     width: 20px;
+.list .item{
      text-align: center;
-     font-size: 10px;
+     background-color: #707070;
+     width: 200px;
+     padding: 20px;
+     color: #fff;
+     box-shadow: 0 20px 20px grey;
+     letter-spacing: 1px;
 }
-.name{
-     font-size: 15px;
+.list .item img{
+     width: 100px;
 }
-.cards{
-     padding: 10px 40px;
-     margin: 0 auto;
+.list .item .title{
+     font-weight: 600;
+}
+.list .item .price{
+     margin: 10px;
+}
+.list .item button{
+     margin: 10px 0;
+     background-color: #000;
+     color: #fff;
+     padding: 10px;
+     width: 100%;
+     cursor: pointer;
+     border-radius: 10px;
+     outline: none;
+}
+.listcard li{
+     display: grid;
+     grid-template-columns: 100px repeat(3, 1fr);
+     row-gap: 10px;
+     margin-bottom: 20px;
+}
+.listcard li div{
+     display: flex;
+     justify-content: center;
+     align-items: center;
+}
+.listcard li img{
+     width: 50px;
+     border-radius: 50%;
+}
+.listcard button{
+     width: auto;
+     background-color: #fff5;
+     border: none;
+     cursor: pointer;
+}
+.listcard .count{
+     margin: 0 10px;
 }

@@ -52,15 +52,15 @@
                               <li><a class="dropdown-item" href="#">Something else here</a></li>
                          </ul>
                     </li>
-
-                    <li class="nav-item nav-link position-relative car" type="button">
-                         <i class="bi bi-cart"></i>
-                              <span class="position-absolute translate-middle badge rounded-pill bg-danger">
-                                0
-                              </span>
-                              Cart
-                    </li>
-
+                    <div class="">
+                         <li class="nav-item nav-link position-relative car" type="button">
+                              <i class="bi bi-cart"></i>
+                                   <span class="position-absolute translate-middle badge rounded-pill bg-danger quantity">
+                                   0
+                                   </span>
+                                   Cart
+                         </li>
+                    </div> 
              </ul>
             </div>
           </div>
@@ -71,21 +71,6 @@
      
      <section class="px-2 relaive">
           <div class="d-flex justify-content-between p-2 bord">
-               <div class="">Android Phones</div>
-               <div class="dropdown">
-                    <div class="dropdown-toggle" id="dropdownMenuButton1" data-bs-toggle="dropdown">
-                         <span>Sort By:</span> Popularity
-                    </div>
-                    <ul class="dropdown-menu" aria-labelledby="dropdownMenuButton1">
-                         <li><a class="dropdown-item" href="#">Action</a></li>
-                         <li><a class="dropdown-item" href="#">Another action</a></li>
-                         <li><a class="dropdown-item" href="#">Something else here</a></li>
-                    </ul>
-               </div>
-          </div>
-          
-          <div class="d-flex justify-content-between p-2 bord">
-               <!-- two div's one with text of 4942 products found and the other with two icons of boxes -->
                <div class="">4942 products found</div>
                <div class="d-flex gap-3">
                     <i class="bi bi-ui-checks"></i>
@@ -93,46 +78,9 @@
                </div>
           </div>
 
-          <div class="row gap-5 cards">
-
-               <div class="p-2 col-lg-3 col-md-5 col-10 card">
-                   <div class="img">
-                         <img src="1.jpg" alt="....">
-                   </div>
-                   <div class="tag">Official Store</div>
-                   <div class="name">
-                         XIAOMI Redmi A2 + 6.52*2GB RAM/32GB ROM Android 12 - Black
-                   </div>
-                   <div class="price">
-                         <div class="new">#61,800</div>
-                         <div class="">
-                              <span class="old"> #71,000</span>
-                              <span class="dis">-13%</span>
-                         </div>
-                   </div>
-                   <div class="rate">
-                         <i class="bi bi-star-fill"></i>
-                         <i class="bi bi-star-fill"></i>
-                         <i class="bi bi-star-fill"></i>
-                         <i class="bi bi-star-half"></i>
-                         <i class="bi bi-star"></i>(26)
-                   </div>
-                   <div class="deli">
-                         Jumia <span class="exp"><i class="bi bi-send-fill"></i>Express</span>
-                   </div>
-                   <div class="btn btnn addcart">ADD TO CART</div>
-                   <div class="ggg">
-                         <div class="d-flex btnnn addition">
-                              <div class="btn btnn bt minus">-</div>
-                              <span class="dig">1</span>
-                              <div class="btn btnn bt plus">+</div>
-                         </div>
-                   </div>
-               </div>
-
-
-
-          </div>
+          <div class="container">
+               <div class="list"></div>
+           </div>
 
      </section>    
 
@@ -140,11 +88,11 @@
           <div class="cold">
                <div class="col col8">
                     <div class="ccc">
-                         Cart (<span class="nnn">0</span>)
+                         Cart (<span class="quantity">0</span>)
                     </div>
-                    <div class="goods">
-                         
-                    </div>
+                    
+                    <div class="listcard"></div>
+                    
                </div>
 
                <div class="col col3">
@@ -160,6 +108,18 @@
           </div>
      </section>
 
+     <!-- <div class="container">
+          <div class="list"></div>
+      </div> -->
+
+      <!-- <div class="card">
+          <h1>Card</h1>
+          <ul class="listcard"></ul>
+          <div class="checkout">
+              <div class="total">0</div>
+              <div class="closeshopping">Close</div>
+          </div>
+      </div> -->
 
 
      <script src="script.js"></script>

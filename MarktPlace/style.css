@@ -27,8 +27,8 @@ form input{
      position: absolute;
      width: 80vw;
      height: 80vh;
-     background-color: #fff;
-     top: 10%;
+     background-color: #333;
+     top: 0%;
      left: 10%;
      padding: 10px;
 }
@@ -38,7 +38,7 @@ form input{
      grid-template-columns: 2fr 1fr;
 }
 .col{
-     background-color: rgba(128, 128, 128, 0.11);
+     background-color: #707070;
      padding: 10px;
 }
 .col3{
@@ -73,10 +73,13 @@ body{
 
 }
 .list .item{
-     text-align: center;
-     height: max-content;
+     height: 400px;
      background-color: #707070;
      padding: 20px;
+     display: flex;
+     flex-direction: column;
+     justify-content: center;
+     align-items: center;
      color: #fff;
      box-shadow: 0 20px 20px grey;
      letter-spacing: 1px;
@@ -117,7 +120,7 @@ body{
 }
 .listcard button{
      width: auto;
-     background-color: #fff5;
+     background-color: rgba(255, 255, 255, 0.333);
      border: none;
      cursor: pointer;
 }

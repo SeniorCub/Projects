@@ -141,13 +141,6 @@ let products = [
      category:"men's clothing",
      image:"https://fakestoreapi.com/img/71-3HjGNDUL._AC_SY879._SX._UX._SY._UY_.jpg",
      rating:{"rate":4.1,"count":259}
-},{
-     id:21,
-     name:"DANVOUY Womens T Shirt Casual Cotton Short",
-     price:12.99,
-     category:"men's clothing",
-     image: "https://fakestoreapi.com/img/61pHAEJ4NML._AC_UX679_.jpg",
-     rating:{"rate":3.6,"count":145}
 }
 ];
 document.querySelector(".carts").style.display = "none";
@@ -160,41 +153,46 @@ document.querySelector(".car").addEventListener("click", () => {
 
 let list = document.querySelector(".list");
 let listCard = document.querySelector(".listcard");
-let body = document.querySelector("body");
-let total = document.querySelectorAll(".total");
+let total = document.querySelector(".total");
 let quantity = document.querySelector(".quantity");
+let deliver = document.querySelector(".deliver");
+let tax = document.querySelector(".tax");
+let maxtotal = document.querySelector(".maxtotal");
 
 let listCards = [];
 
 function initApp() {
-     products.forEach((value, key) => {
-         let newDiv = document.createElement("div");
-         newDiv.classList.add("item");
-         const heartIconStyle = value.liked ? "fa-solid" : "fa-regular";
-         newDiv.innerHTML = `
-             <img src="${value.image}" alt="product" width="100px">
-             <div class="title">${value.name}</div>
-             <div class="card-title  d-flex">
-                 <div class="btn btn-sm btn-pri cartgo">${value.category}</div>
-             </div>
-             <div class="bon card-title d-flex">
-                 <div class="btn btn-pri percent">${value.rating.rate}</div>
-                 <div class="btn btn-pri love""><i class="fa-regular fa-heart" style="color: #e94c2a;"></i></div>
-             </div>
-             <div class="price">$${value.price.toLocaleString()}</div>
-             <button class="addCart" onclick="addToCard(event, ${key})">Add To Cart</button>
-         `;
-         list.appendChild(newDiv);
-     });
- } 
+    products.forEach((value, key) => {
+        // Add a quantity property to each product
+        value.quantity = 0;
 
-initApp();
+        let newDiv = document.createElement("div");
+        newDiv.classList.add("item");
+        const heartIconStyle = value.liked ? "fa-solid" : "fa-regular";
+        newDiv.innerHTML = `
+            <img src="${value.image}" alt="product" width="100px">
+            <div class="title">${value.name}</div>
+            <div class="card-title  d-flex">
+                <div class="btn btn-sm btn-pri cartgo">${value.category}</div>
+            </div>
+            <div class="bon card-title d-flex">
+                <div class="btn btn-pri percent">${value.rating.rate}</div>
+                <div class="btn btn-pri love""><i class="fa-regular fa-heart" style="color: #e94c2a;"></i></div>
+            </div>
+            <div class="price">$${value.price.toLocaleString()}</div>
+            <button class="addCart" onclick="addToCart(event, ${key})">Add To Cart</button>
+        `;
+        list.appendChild(newDiv);
+    });
+}
 
-function addToCard(event, key) {
+function addToCart(event, key) {
     event.preventDefault();
     if (listCards[key] == null) {
         listCards[key] = { ...products[key], quantity: 1 };
     }
+    // Increment the quantity when adding to cart
+    products[key].quantity++;
     reloadCard();
 }
 
@@ -202,8 +200,10 @@ function reloadCard() {
     listCard.innerHTML = ``;
     let count = 0;
     let totalPrice = 0;
+
+    // Calculate total based on listCards array
     listCards.forEach((value, key) => {
-        totalPrice = totalPrice + value.price;
+        totalPrice = totalPrice + value.price * value.quantity;
         count = count + value.quantity;
 
         if (value != null) {
@@ -211,7 +211,7 @@ function reloadCard() {
             newDiv.innerHTML = `
                 <div><img src="${value.image}" alt="" width=""></div>
                 <div>${value.name}</div>
-                <div>${value.price.toLocaleString()}</div>
+                <div>$${(value.price * value.quantity).toLocaleString()}</div>
                 <div>
                     <button onclick="changeQuantity(${key}, ${value.quantity - 1})">-</button>
                     <div class="count">${value.quantity}</div>
@@ -221,10 +221,17 @@ function reloadCard() {
             listCard.appendChild(newDiv);
         }
     });
-    total.forEach((value) => {
-        value.innerText = totalPrice.toLocaleString();
-    });
+
+    // Calculate tax, delivery, and max total
+    let del = totalPrice * 0.02;
+    let ttax = totalPrice * 0.011;
+    let max = totalPrice + del + ttax;
+
+    total.innerText = totalPrice.toLocaleString();
     quantity.innerText = count;
+    deliver.innerText = del.toLocaleString();
+    tax.innerText = ttax.toLocaleString();
+    maxtotal.innerText = max.toLocaleString();
 }
 
 function changeQuantity(key, quantity) {
@@ -232,7 +239,6 @@ function changeQuantity(key, quantity) {
         delete listCards[key];
     } else {
         listCards[key].quantity = quantity;
-        listCards[key].price = quantity * products[key].price;
     }
     reloadCard();
 }
@@ -245,9 +251,9 @@ toogler.forEach((button, key) => {
 function like(event, key) {
     const likeButton = event.currentTarget;
     const product = products[key];
-    
+
     const heartIcon = likeButton.querySelector(".fa-heart");
-    
+
     // Toggle the liked property for the specific product
     product.liked = !product.liked;
 
@@ -255,3 +261,5 @@ function like(event, key) {
     heartIcon.classList.toggle("fa-solid", product.liked);
     heartIcon.classList.toggle("fa-regular", !product.liked);
 }
+
+initApp();

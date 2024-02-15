@@ -182,7 +182,7 @@ function initApp() {
                  <div class="btn btn-pri love""><i class="fa-regular fa-heart" style="color: #e94c2a;"></i></div>
              </div>
              <div class="price">$${value.price.toLocaleString()}</div>
-             <button onclick="addToCard(event, ${key})">Add To Cart</button>
+             <button class="addCart" onclick="addToCard(event, ${key})">Add To Cart</button>
          `;
          list.appendChild(newDiv);
      });

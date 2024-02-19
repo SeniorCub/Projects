@@ -1,0 +1,229 @@
+*{
+     margin: 0;
+     padding: 0;
+     box-sizing: border-box;
+}
+body{
+     font-family: 'Poppins', sans-serif;
+}
+.first{
+     position: relative;
+     background-repeat: no-repeat;
+     background-position: bottom;
+     background-image: linear-gradient(0deg,rgba(18,21,38,0) 4.88%,#121526),radial-gradient(100% 206.64% at 100% 0,#464c78 0,#454b77 31.27%,#373d66 46.34%,#2e3259 63.27%,#2b2f54 70.87%,#202446 83.85%,#1e2038 100%);
+}
+nav{
+     display: flex;
+     justify-content: space-between;
+     align-items: center;
+     height: 10vh;
+     padding: 60px 100px;
+}
+img{
+     width: 100%;
+     height: 100%;
+     object-fit: cover;
+}
+.brand{
+     width: 20%;
+}
+.others{
+     display: flex;
+     justify-content: space-between;
+     align-items: center;
+     width: 45%;
+}
+a{
+     color: #fff;
+     text-decoration: none;
+}
+.links{
+     display: flex;
+     gap: 20px;
+     align-items: center;
+}
+.links a{
+     font-size: 15px;
+     font-weight: 900;
+     color: #ffffff5a;
+}
+.link a:hover{
+     color: #fff;
+}
+.bttn{
+     padding: 10px 20px;
+     border: 1px solid #4dbad6;
+     color: #fff;
+     border-radius: 5px;
+     cursor: pointer;
+     border-radius: 30px;
+     font-weight: 600;
+     font-size: 14px;
+     letter-spacing: .02em;
+}
+.bttn:hover{
+     background-color: #4dbad6;
+}
+.hero{
+     display: flex;
+     flex-direction: column;
+     align-items: center;
+     text-align: center;
+     padding: 0 100px;
+     height: 100vh;
+}
+.cath{
+     color: #fff;
+     font-size: 60px;
+     font-weight: 900;
+     margin-top: 20px;
+     margin-bottom: 20px;
+     line-height: 1.5em;
+     text-align: center;
+     letter-spacing: -.01em;
+}
+.ddd{
+     background:linear-gradient(269.2deg,#4dbad6 13.54%,#348cf4 50.52%,#7b48e8 85.94%);
+     -webkit-background-clip:text;
+     background-clip:text;
+     -webkit-text-fill-color:transparent;
+}
+.icons{
+     margin: 0 auto;
+     display: flex;
+     gap: 20px;
+     width: 40%;
+     margin-bottom: 20px;
+}
+.icon{
+     width: 50px;
+     height: 50px;
+     cursor: pointer;
+}
+.icon img{
+     width: 100%;
+     height: 100%;
+     object-fit: contain;
+}
+.cathchh{
+     color: #fff;
+     font-size: 30px;
+     font-weight: 900;
+     width: 60%;
+     margin-top: 20px;
+     margin-bottom: 20px;
+     line-height: 1.5em;
+     text-align: center;
+     letter-spacing: -.01em;
+}
+.one{
+     border-bottom: 1px solid #fff;
+}
+
+.container {
+     width: 307px;
+     height: 50px;
+   }
+   
+   .content {
+     display: block;
+     position: sticky;
+     overflow: hidden;
+     font-family: 'Lato', sans-serif;
+     font-size: 35px;
+     line-height: 40px;
+     color: #ecf0f1;
+   }
+   
+   .content__container {
+     font-weight: 600;
+     overflow: hidden;
+     height: 40px;
+     padding: 0 40px;
+   }
+   
+   .content__container:before {
+     content: '[';
+     left: 0;
+   }
+   
+   .content__container:after {
+     content: ']';
+     position: absolute;
+     right: 0;
+   }
+   
+   .content__container:after, .content__container:before {
+     position: absolute;
+     top: -2px;
+     color: #16a085;
+     font-size: 42px;
+     line-height: 40px;
+     -webkit-animation-name: opacity;
+     -webkit-animation-duration: 2s;
+     -webkit-animation-iteration-count: infinite;
+     animation-name: opacity;
+     animation-duration: 2s;
+     animation-iteration-count: infinite;
+   }
+   
+   .content__container__text {
+     display: inline;
+     float: left;
+     margin: 0;
+   }
+   
+   .content__container__list {
+     margin-top: 0;
+     padding-left: 110px;
+     text-align: left;
+     list-style: none;
+     -webkit-animation-name: change;
+     -webkit-animation-duration: 10s;
+     -webkit-animation-iteration-count: infinite;
+     animation-name: change;
+     animation-duration: 10s;
+     animation-iteration-count: infinite;
+   }
+   
+   .content__container__list__item {
+     line-height: 40px;
+     margin: 0;
+   }
+   
+   @keyframes opacity {
+     0%, 100% {
+       opacity: 0;
+     }
+   
+     50% {
+       opacity: 1;
+     }
+   }
+   
+   @keyframes change {
+     0%, 12.66%, 100% {
+       transform: translate3d(0, 0, 0);
+     }
+   
+     16.66%, 29.32% {
+       transform: translate3d(0, -25%, 0);
+     }
+   
+     33.32%, 45.98% {
+       transform: translate3d(0, -50%, 0);
+     }
+   
+     49.98%, 62.64% {
+       transform: translate3d(0, -75%, 0);
+     }
+   
+     66.64%, 79.3% {
+       transform: translate3d(0, -50%, 0);
+     }
+   
+     83.3%, 95.96% {
+       transform: translate3d(0, -25%, 0);
+     }
+   }
+    
